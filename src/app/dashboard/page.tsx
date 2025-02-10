@@ -1,4 +1,5 @@
 "use client"
+import CharacterProfile from "@/components/CharacterProfile";
 import { LogoutLink, useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 export default function Dashboard() {
@@ -16,6 +17,7 @@ export default function Dashboard() {
         <LogoutLink>Sair</LogoutLink>
       </div>
       <h1>Dashboard</h1>
+      <CharacterProfile />
     </>
   )
 }
