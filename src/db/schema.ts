@@ -1,22 +1,12 @@
 import { relations } from "drizzle-orm";
 import { integer, jsonb, pgTable, timestamp, varchar } from "drizzle-orm/pg-core";
 
-export const usersTable = pgTable(
-  "users",
-  {
-    id: integer().primaryKey().generatedAlwaysAsIdentity(),
-    name: varchar({ length: 255 }).notNull(),
-    email: varchar({ length: 255 }).notNull().unique(),
-    avatar: varchar({ length: 255 }),
-  }
-);
-
 export const charactersTable = pgTable(
   "characters",
   {
-    id: integer().primaryKey().generatedAlwaysAsIdentity().unique(),
+    id: varchar({ length: 255 }).primaryKey().unique(),
     name: varchar({ length: 255 }).notNull(),
-    user_id: integer("user_id").references(() => usersTable.id).notNull(),
+    user_id: varchar({ length:255 }).notNull(),
     mark_type: varchar({ length: 255 }).notNull(),
     attributes: jsonb().notNull(),
     level: integer().notNull(),
@@ -29,8 +19,8 @@ export const charactersTable = pgTable(
 export const fluxMarksTable = pgTable(
   "flux_marks",
   {
-    id: integer().primaryKey().generatedAlwaysAsIdentity(),
-    character_id: integer("character_id").references(() => charactersTable.id).notNull(),
+    id: varchar({ length: 255 }).primaryKey(),
+    character_id: varchar({ length: 255 }).references(() => charactersTable.id).notNull(),
     name: varchar({ length: 255 }).notNull(),
     effects: jsonb().notNull(),
     skills: jsonb().notNull(),
@@ -40,9 +30,9 @@ export const fluxMarksTable = pgTable(
 export const inventoryTable = pgTable(
   "inventory",
   {
-    id: integer().primaryKey().generatedAlwaysAsIdentity(),
-    character_id: integer("character_id").references(() => charactersTable.id).notNull(),
-    item_id: integer("item_id").references(() => itemsTable.id).notNull(),
+    id: varchar({ length: 255 }).primaryKey(),
+    character_id: varchar({ length: 255 }).references(() => charactersTable.id).notNull(),
+    item_id: varchar({ length: 255 }).references(() => itemsTable.id).notNull(),
     name: varchar({ length: 255 }).notNull(),
     quantity: integer().notNull(),
     description: varchar({ length: 255 }).notNull(),
@@ -54,7 +44,7 @@ export const inventoryTable = pgTable(
 export const itemsTable = pgTable(
   "items",
   {
-    id: integer().primaryKey().generatedAlwaysAsIdentity(),
+    id: varchar({ length: 255 }).primaryKey(),
     name: varchar({ length: 255 }).notNull(),
     type: varchar({ length: 255 }).notNull(),
     effects: jsonb().notNull(),
@@ -66,13 +56,13 @@ export const itemsTable = pgTable(
 export const eventsTable = pgTable(
   "events",
   {
-    id: integer().primaryKey().generatedAlwaysAsIdentity(),
+    id: varchar({ length: 255 }).primaryKey(),
     name: varchar({ length: 255 }).notNull(),
     description: varchar({ length: 255 }).notNull(),
     type: varchar({ length: 255 }).notNull(),
     date: timestamp().notNull(),
     status: varchar({ length: 255 }).notNull(),
-    character_id: integer("character_id").references(() => charactersTable.id).notNull(),
+    character_id: varchar({ length: 255 }).references(() => charactersTable.id).notNull(),
     characterImpact: varchar({ length: 255 }).notNull(),
   }
 )
@@ -80,24 +70,18 @@ export const eventsTable = pgTable(
 export const worldLocationsTable = pgTable(
   "world_locations",
   {
-    id: integer().primaryKey().generatedAlwaysAsIdentity(),
+    id: varchar({ length: 255 }).primaryKey(),
     name: varchar({ length: 255 }).notNull(),
     description: varchar({ length: 255 }).notNull(),
     type: varchar({ length: 255 }).notNull(),
     difficulty: varchar({ length: 255 }).notNull(),
     status: varchar({ length: 255 }).notNull(),
-    character_id: integer("character_id").references(() => charactersTable.id).notNull(),
+    character_id: varchar({ length: 255 }).references(() => charactersTable.id).notNull(),
   }
 )
 
 // Relationships
-
-export const usersRelations = relations(usersTable, ({ one }) => ({
-  characters: one(charactersTable, { fields: [usersTable.id], references: [charactersTable.user_id] }),
-}))
-
-export const charactersRelations = relations(charactersTable, ({ one, many }) => ({
-  user: one(usersTable, { fields: [charactersTable.user_id], references: [usersTable.id] }),
+export const charactersRelations = relations(charactersTable, ({ many, one }) => ({
   inventory: many(inventoryTable),
   events: many(eventsTable),
   worldLocation: one(worldLocationsTable, { fields: [charactersTable.id], references: [worldLocationsTable.character_id] }),
