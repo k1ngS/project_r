@@ -4,7 +4,7 @@ import { integer, jsonb, pgTable, timestamp, varchar } from "drizzle-orm/pg-core
 export const charactersTable = pgTable(
   "characters",
   {
-    id: varchar({ length: 255 }).primaryKey().unique(),
+    id: varchar({ length: 255 }).primaryKey().$defaultFn(() => crypto.randomUUID()),
     name: varchar({ length: 255 }).notNull(),
     user_id: varchar({ length:255 }).notNull(),
     mark_type: varchar({ length: 255 }).notNull(),
