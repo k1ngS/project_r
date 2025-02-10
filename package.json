@@ -11,7 +11,7 @@
     "db:migrate": "tsx ./src/db/migrate.ts"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.11.1",
+    "@kinde-oss/kinde-auth-nextjs": "^2.5.0",
     "@neondatabase/serverless": "^0.10.4",
     "drizzle-orm": "^0.39.2",
     "next": "15.1.6",
