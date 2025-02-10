@@ -3,7 +3,7 @@
 </p>
 <p align="center"><h1 align="center">PROJECT_R</h1></p>
 <p align="center">
-  <em>Code consistency, style harmony, project_r shines!</em>
+  <em>Code consistency, quality, and enhanced architecture flow.</em>
 </p>
 <p align="center">
   <img src="https://img.shields.io/github/license/k1ngS/project_r?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
@@ -39,7 +39,19 @@
 
 ##  Overview
 
-**Projectr** is a comprehensive open-source toolkit that streamlines project setup and maintenance for web developers. It simplifies configuration management, code quality enforcement, and dependency control. By providing centralized settings for Next.js, React, and styling tools like Tailwind CSS, it ensures consistent code quality and efficient development workflows. Ideal for teams seeking a cohesive and productive coding environment.
+**Projectr Overview:
+
+**Solving the Chaos of Project Configuration:
+Projectr is a revolutionary open-source tool that simplifies project configuration chaos. By providing a structured schema for settings like VCS, linting rules, and database configurations, it enhances code quality and consistency across architectures.
+
+**Key Features and Benefits:
+Streamlined project setup and maintenance
+Enhanced code quality and consistency
+Strict schema enforcement for configurations
+Simplified database setup and migrations
+
+**Target Audience and Use Cases:
+Ideal for developers and teams working on projects with complex configurations, Projectr ensures a smooth development experience and robust codebase architecture. Whether setting up new projects or maintaining existing ones, Projectr is the go-to solution for efficient and reliable project configuration management.
 
 ---
 
@@ -47,15 +59,14 @@
 
 |      | Feature         | Summary       |
 | :--- | :---:           | :---          |
-| ⚙️  | **Architecture**  | <ul><li>Defined in `biome.json`, maintaining consistent code quality and style.</li><li>Utilizes `next.config.ts` to manage Next.js configuration.</li><li>Dependencies managed in `package.json` for efficient project setup.</li></ul> |
-| 🔩 | **Code Quality**  | <ul><li>Configured in `biome.json` for linting, import organization, and code formatting.</li><li>Utilizes TypeScript with `tsconfig.json` for type safety and ES2017 target.</li><li>PostCSS and Tailwind CSS in `postcss.config.mjs` for styling needs.</li></ul> |
-| 📄 | **Documentation** | <ul><li>Primary language documentation in JSON, TypeScript, and YAML formats.</li><li>Extensive documentation in `package.json` for setup, scripts, and dependencies.</li><li>Usage and test commands detailed in documentation for easy reference.</li></ul> |
-| 🔌 | **Integrations**  | <ul><li>Integrates with Next.js for incremental compilation and path aliasing.</li><li>Utilizes PostCSS and Tailwind CSS for styling integration.</li><li>Dependencies managed with `pnpm-lock.yaml` for consistent package versions.</li></ul> |
-| 🧩 | **Modularity**    | <ul><li>Modular structure defined in TypeScript with `tsconfig.json` for project organization.</li><li>Separate files like `layout.tsx` and `page.tsx` for distinct functionalities.</li><li>Global CSS variables in `globals.css` for consistent theming.</li></ul> |
-| 🧪 | **Testing**       | <ul><li>Testing commands documented for easy reference in the project.</li><li>Utilizes tools like Jest and React Testing Library for testing React components.</li><li>Ensures code quality and functionality through comprehensive testing strategies.</li></ul> |
-| ⚡️  | **Performance**   | <ul><li>Optimized performance through Next.js configuration in `next.config.ts`.</li><li>Efficient styling with Tailwind CSS and PostCSS for faster rendering.</li><li>TypeScript compilation options in `tsconfig.json` for performance improvements.</li></ul> |
-| 🛡️ | **Security**      | <ul><li>Secure dependencies management with `pnpm-lock.yaml` for consistent package versions.</li><li>Utilizes TypeScript for type safety and security enhancements.</li><li>Follows best practices for secure coding and data handling.</li></ul> |
-| 📦 | **Dependencies**  | <ul><li>Managed in `package.json` for seamless project setup and maintenance.</li><li>Key dependencies include Next.js, React, PostCSS, Tailwind CSS, and TypeScript.</li><li>Ensures stable and reproducible development environment through dependency pinning.</li></ul> |
+| ⚙️  | **Architecture**  | <ul><li>Defined using **TypeScript** to ensure type safety and maintainability.</li><li>Utilizes **Next.js** for server-side rendering and routing.</li><li>Follows a **modular** structure with clear separation of concerns.</li></ul> |
+| 🔩 | **Code Quality**  | <ul><li>Configured with **biome.json** to enforce consistent code formatting and linting rules.</li><li>Uses **Drizzle Kit** for database schema enforcement and migrations.</li><li>Includes **PostCSS** and **Tailwind CSS** for consistent styling across the codebase.</li></ul> |
+| 📄 | **Documentation** | <ul><li>Primary language is **TypeScript** with detailed documentation in various formats (e.g., JSON, YAML, CSS).</li><li>Package management with **npm** is well-documented in the **package.json** file.</li><li>Extensive usage of **TypeScript** annotations for clear code understanding.</li></ul> |
+| 🔌 | **Integrations**  | <ul><li>Integrates **Neon** and **Drizzle-ORM** for database connections and migrations.</li><li>Utilizes **@kinde-oss/kinde-auth-nextjs** for authentication handling.</li><li>Includes **@neondatabase/serverless** for serverless database operations.</li></ul> |
+| 🧩 | **Modularity**    | <ul><li>Separates concerns with distinct files like **middleware.ts** for authentication and **db/index.ts** for database setup.</li><li>Components like **layout.tsx** and **page.tsx** encapsulate specific functionalities for reusability.</li><li>Organizes API routes in separate files like **api/characters/route.ts** and **api/events/route.ts** for clarity.</li></ul> |
+| 🧪 | **Testing**       | <ul><li>Testing commands documented in the **package.json** file for easy execution.</li><li>Utilizes **npm** for running tests to ensure code reliability.</li><li>Includes testing of API routes and database migrations for robustness.</li></ul> |
+| ⚡️  | **Performance**   | <ul><li>Optimizes performance with **Next.js** for efficient server-side rendering.</li><li>Utilizes **Tailwind CSS** for optimized styling and faster loading times.</li><li>Implements **incremental builds** with **TypeScript** for quicker development iterations.</li></ul> |
+| 🛡️ | **Security**      | <ul><li>Implements secure authentication using **Kinde server session** in **src/lib/kinde.ts**.</li><li>Ensures secure database interactions with **Drizzle ORM** migrations.</li><li>Handles authentication errors and exceptions in API routes for enhanced security.</li></ul> |
 
 ---
 
@@ -65,6 +76,7 @@
 └── project_r/
     ├── README.md
     ├── biome.json
+    ├── drizzle.config.ts
     ├── next.config.ts
     ├── package.json
     ├── pnpm-lock.yaml
@@ -76,7 +88,10 @@
     │   ├── vercel.svg
     │   └── window.svg
     ├── src
-    │   └── app
+    │   ├── app
+    │   ├── db
+    │   ├── lib
+    │   └── middleware.ts
     ├── tailwind.config.ts
     └── tsconfig.json
 ```
@@ -91,31 +106,35 @@
       <table>
       <tr>
         <td><b><a href='https://github.com/k1ngS/project_r/blob/master/biome.json'>biome.json</a></b></td>
-        <td>- Defines project configuration settings for biome.js, specifying VCS, file handling, code formatting, import organization, linting rules, and JavaScript formatting preferences<br>- The biome.json file serves as a central configuration hub for maintaining consistent code quality and style across the codebase architecture.</td>
+        <td>- Defines project configuration settings for biome.js, including VCS, file handling, code formatting, imports organization, linting rules, and JavaScript formatting<br>- The biome.json file specifies these settings using a structured schema to maintain consistency and enhance code quality across the codebase architecture.</td>
+      </tr>
+      <tr>
+        <td><b><a href='https://github.com/k1ngS/project_r/blob/master/drizzle.config.ts'>drizzle.config.ts</a></b></td>
+        <td>- Defines database configuration for migrations and schema in the project using Drizzle Kit<br>- It sets up the output directory for migrations, specifies the schema file location, and provides PostgreSQL database credentials<br>- The configuration ensures strict schema enforcement and filters out specific schemas during migration.</td>
       </tr>
       <tr>
         <td><b><a href='https://github.com/k1ngS/project_r/blob/master/next.config.ts'>next.config.ts</a></b></td>
-        <td>Define the project's Next.js configuration in the provided file to manage settings and options for the entire codebase architecture.</td>
+        <td>Define project configuration settings using Next.js.</td>
       </tr>
       <tr>
         <td><b><a href='https://github.com/k1ngS/project_r/blob/master/package.json'>package.json</a></b></td>
-        <td>- Facilitates project setup and management by defining scripts for development, building, starting, and linting<br>- Manages dependencies for Next.js, React, and related types, along with PostCSS, Tailwind CSS, and TypeScript<br>- Ensures seamless development experience and efficient project maintenance.</td>
+        <td>- Define project dependencies and scripts for development, building, starting, and linting<br>- Includes database generation and migration commands<br>- Dependencies cover authentication, database, ORM, and tooling<br>- Dev dependencies encompass Biome, Node and React type definitions, environment variables, PostCSS, Tailwind CSS, and TypeScript.</td>
       </tr>
       <tr>
         <td><b><a href='https://github.com/k1ngS/project_r/blob/master/pnpm-lock.yaml'>pnpm-lock.yaml</a></b></td>
-        <td>- The `pnpm-lock.yaml` file in the project serves as a lockfile to manage dependencies and ensure consistent package versions across the codebase<br>- It specifies the versions of packages required for the project, including key dependencies like Next.js and React<br>- This file plays a crucial role in maintaining a stable and reproducible development environment by pinning down the exact versions of dependencies used in the project.</td>
+        <td>- The `pnpm-lock.yaml` file in the project structure serves as a lockfile to manage dependencies and ensure consistent package versions across the codebase<br>- It specifies the versions of packages required for the project, including `@kinde-oss/kinde-auth-nextjs` and its dependencies<br>- This file plays a crucial role in maintaining a stable and reproducible development environment by pinning down the exact versions of dependencies used in the project.</td>
       </tr>
       <tr>
         <td><b><a href='https://github.com/k1ngS/project_r/blob/master/postcss.config.mjs'>postcss.config.mjs</a></b></td>
-        <td>Defines PostCSS configuration with Tailwind CSS plugin for the project's styling needs.</td>
+        <td>Defines PostCSS configuration for TailwindCSS plugin in the project, ensuring consistent styling across the codebase.</td>
       </tr>
       <tr>
         <td><b><a href='https://github.com/k1ngS/project_r/blob/master/tailwind.config.ts'>tailwind.config.ts</a></b></td>
-        <td>- Defines Tailwind CSS configuration for project theming, content paths, and plugins<br>- Extends color palette with custom background and foreground colors<br>- Organizes content from pages, components, and app directories.</td>
+        <td>- Defines Tailwind CSS configuration for project theming and content, specifying file paths for styles and components<br>- Extends theme colors and defines plugins.</td>
       </tr>
       <tr>
         <td><b><a href='https://github.com/k1ngS/project_r/blob/master/tsconfig.json'>tsconfig.json</a></b></td>
-        <td>- Defines TypeScript compiler options and project structure for an ES2017 target, enabling JSX preservation and bundler module resolution<br>- Integrates with Next.js for incremental compilation and path aliasing to the source directory.</td>
+        <td>- Defines TypeScript compiler options for the project, targeting ES2017 with strict settings<br>- Enables JSX preservation, module bundling, and path aliases<br>- Excludes node_modules from compilation and utilizes incremental builds<br>- Integrates a Next.js plugin for enhanced functionality.</td>
       </tr>
       </table>
     </blockquote>
@@ -123,21 +142,181 @@
   <details> <!-- src Submodule -->
     <summary><b>src</b></summary>
     <blockquote>
+      <table>
+      <tr>
+        <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/middleware.ts'>middleware.ts</a></b></td>
+        <td>Implements middleware for authentication with specific path matching criteria to secure routes in the project architecture.</td>
+      </tr>
+      </table>
       <details>
         <summary><b>app</b></summary>
         <blockquote>
           <table>
           <tr>
             <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/globals.css'>globals.css</a></b></td>
-            <td>- Define global CSS variables for light and dark mode themes, setting background and foreground colors<br>- Apply Tailwind CSS base, components, and utilities<br>- Ensure consistent styling across the project by defining font family and color properties for the body element.</td>
+            <td>- Define global CSS variables for light and dark mode themes to style the project's UI<br>- Tailwind CSS utilities are utilized for base styles<br>- The file sets background and foreground colors, adjusts based on user's color scheme preference, and defines font family<br>- This ensures consistent and accessible visual styling across the application.</td>
           </tr>
           <tr>
             <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/layout.tsx'>layout.tsx</a></b></td>
-            <td>- Defines the root layout for the project, setting up the fonts and metadata<br>- It establishes the structure for the HTML document, specifying the language and body content<br>- The layout incorporates the Geist font styles and passes down child components for rendering.</td>
+            <td>- Defines a RootLayout component for the project, setting up the base layout structure with specified fonts and global styles<br>- The component receives children as props and renders them within the HTML body, applying the defined fonts and styles<br>- Additionally, it includes metadata for the page title and description.</td>
           </tr>
           <tr>
             <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/page.tsx'>page.tsx</a></b></td>
-            <td>- The code in src/app/page.tsx renders the main content of the Home page, showcasing Next.js and Vercel branding with links for deployment and documentation<br>- It encourages users to edit the file, save changes instantly, and provides additional resources for learning and examples<br>- The layout is designed to be responsive and user-friendly.</td>
+            <td>- Enables users to sign in or sign up by rendering login and registration links from the "kinde-auth-nextjs" package within the Home component<br>- This functionality enhances user experience and facilitates seamless authentication processes within the project's frontend architecture.</td>
+          </tr>
+          </table>
+          <details>
+            <summary><b>dashboard</b></summary>
+            <blockquote>
+              <table>
+              <tr>
+                <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/dashboard/page.tsx'>page.tsx</a></b></td>
+                <td>- Enables user authentication and displays user information on the dashboard page using the Kinde Browser Client<br>- Includes user avatar, name, email, and logout functionality.</td>
+              </tr>
+              </table>
+            </blockquote>
+          </details>
+          <details>
+            <summary><b>api</b></summary>
+            <blockquote>
+              <details>
+                <summary><b>characters</b></summary>
+                <blockquote>
+                  <table>
+                  <tr>
+                    <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/api/characters/route.ts'>route.ts</a></b></td>
+                    <td>- Implement a route to fetch characters based on the authenticated user's ID from the database<br>- The code retrieves the user, queries characters associated with their ID, and returns the result as JSON<br>- In case of errors, it responds with a 500 status and an error message.</td>
+                  </tr>
+                  </table>
+                </blockquote>
+              </details>
+              <details>
+                <summary><b>events</b></summary>
+                <blockquote>
+                  <table>
+                  <tr>
+                    <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/api/events/route.ts'>route.ts</a></b></td>
+                    <td>- Defines API routes for handling events, facilitating communication between the frontend and backend<br>- This code file plays a crucial role in structuring the project's API layer, ensuring seamless interaction with event-related data.</td>
+                  </tr>
+                  </table>
+                </blockquote>
+              </details>
+              <details>
+                <summary><b>inventory</b></summary>
+                <blockquote>
+                  <table>
+                  <tr>
+                    <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/api/inventory/route.ts'>route.ts</a></b></td>
+                    <td>Implements an asynchronous function to handle GET requests for the inventory API route in the project architecture.</td>
+                  </tr>
+                  </table>
+                </blockquote>
+              </details>
+              <details>
+                <summary><b>items</b></summary>
+                <blockquote>
+                  <table>
+                  <tr>
+                    <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/api/items/route.ts'>route.ts</a></b></td>
+                    <td>Implements a route function to handle GET requests for items in the API.</td>
+                  </tr>
+                  </table>
+                </blockquote>
+              </details>
+              <details>
+                <summary><b>users</b></summary>
+                <blockquote>
+                  <table>
+                  <tr>
+                    <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/api/users/route.ts'>route.ts</a></b></td>
+                    <td>Defines a route to retrieve authenticated user data from Kinde, handling authentication errors and server exceptions.</td>
+                  </tr>
+                  </table>
+                </blockquote>
+              </details>
+              <details>
+                <summary><b>world_locations</b></summary>
+                <blockquote>
+                  <table>
+                  <tr>
+                    <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/api/world_locations/route.ts'>route.ts</a></b></td>
+                    <td>Implements a route for fetching world locations in the project's API.</td>
+                  </tr>
+                  </table>
+                </blockquote>
+              </details>
+              <details>
+                <summary><b>auth</b></summary>
+                <blockquote>
+                  <details>
+                    <summary><b>[kindeAuth]</b></summary>
+                    <blockquote>
+                      <table>
+                      <tr>
+                        <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/app/api/auth/[kindeAuth]/route.ts'>route.ts</a></b></td>
+                        <td>Enables authentication handling for the API endpoint using the "kinde-auth-nextjs" library.</td>
+                      </tr>
+                      </table>
+                    </blockquote>
+                  </details>
+                </blockquote>
+              </details>
+            </blockquote>
+          </details>
+        </blockquote>
+      </details>
+      <details>
+        <summary><b>db</b></summary>
+        <blockquote>
+          <table>
+          <tr>
+            <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/db/index.ts'>index.ts</a></b></td>
+            <td>- Initialize and configure the database connection using Neon and Drizzle-ORM<br>- Import the necessary modules and set up the database client with the specified schema and logging enabled<br>- Ensure the Neon postgres connection string is provided in the environment variables.</td>
+          </tr>
+          <tr>
+            <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/db/migrate.ts'>migrate.ts</a></b></td>
+            <td>- Handles database migrations by utilizing the Drizzle ORM migrator to update the database schema<br>- The code triggers the migration process, ensuring that the database structure aligns with the latest changes in the codebase.</td>
+          </tr>
+          <tr>
+            <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/db/schema.ts'>schema.ts</a></b></td>
+            <td>- Defines database schema and relationships for characters, inventory, items, events, and world locations<br>- Establishes tables with specific fields and constraints, linking entities through foreign keys<br>- Facilitates data organization and retrieval within the project's database architecture.</td>
+          </tr>
+          </table>
+          <details>
+            <summary><b>migrations</b></summary>
+            <blockquote>
+              <table>
+              <tr>
+                <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/db/migrations/0000_square_bloodaxe.sql'>0000_square_bloodaxe.sql</a></b></td>
+                <td>- Defines database schema for characters, events, flux marks, inventory, items, and world locations<br>- Establishes relationships between tables using foreign keys<br>- Crucial for data organization and integrity in the project's database architecture.</td>
+              </tr>
+              </table>
+              <details>
+                <summary><b>meta</b></summary>
+                <blockquote>
+                  <table>
+                  <tr>
+                    <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/db/migrations/meta/0000_snapshot.json'>0000_snapshot.json</a></b></td>
+                    <td>- Defines database schema for characters, events, flux marks, inventory, items, and world locations with specific columns and relationships<br>- Captures data structure and constraints for character-based interactions within the application.</td>
+                  </tr>
+                  <tr>
+                    <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/db/migrations/meta/_journal.json'>_journal.json</a></b></td>
+                    <td>Manages database migration metadata, tracking version history, dialect, and breakpoints.</td>
+                  </tr>
+                  </table>
+                </blockquote>
+              </details>
+            </blockquote>
+          </details>
+        </blockquote>
+      </details>
+      <details>
+        <summary><b>lib</b></summary>
+        <blockquote>
+          <table>
+          <tr>
+            <td><b><a href='https://github.com/k1ngS/project_r/blob/master/src/lib/kinde.ts'>kinde.ts</a></b></td>
+            <td>- Enables retrieval of authenticated user data by leveraging the Kinde server session<br>- Validates user authentication status and returns the user object, ensuring that the user is authenticated before proceeding<br>- This function plays a crucial role in the project's authentication flow and user access control.</td>
           </tr>
           </table>
         </blockquote>
@@ -153,7 +332,7 @@
 
 Before getting started with project_r, ensure your runtime environment meets the following requirements:
 
-- **Programming Language:** Error detecting primary_language: {'json': 3, 'ts': 2, 'yaml': 1, 'mjs': 1, 'css': 1, 'tsx': 2}
+- **Programming Language:** TypeScript
 - **Package Manager:** Npm
 
 
@@ -176,10 +355,10 @@ Install project_r using one of the following methods:
 3. Install the project dependencies:
 
 
-**Using `npm`** &nbsp; [<img align="center" src="" />]()
+**Using `npm`** &nbsp; [<img align="center" src="https://img.shields.io/badge/npm-CB3837.svg?style={badge_style}&logo=npm&logoColor=white" />](https://www.npmjs.com/)
 
 ```sh
-❯ echo 'INSERT-INSTALL-COMMAND-HERE'
+❯ npm install
 ```
 
 
@@ -187,19 +366,19 @@ Install project_r using one of the following methods:
 
 ###  Usage
 Run project_r using the following command:
-**Using `npm`** &nbsp; [<img align="center" src="" />]()
+**Using `npm`** &nbsp; [<img align="center" src="https://img.shields.io/badge/npm-CB3837.svg?style={badge_style}&logo=npm&logoColor=white" />](https://www.npmjs.com/)
 
 ```sh
-❯ echo 'INSERT-RUN-COMMAND-HERE'
+❯ npm start
 ```
 
 
 ###  Testing
 Run the test suite using the following command:
-**Using `npm`** &nbsp; [<img align="center" src="" />]()
+**Using `npm`** &nbsp; [<img align="center" src="https://img.shields.io/badge/npm-CB3837.svg?style={badge_style}&logo=npm&logoColor=white" />](https://www.npmjs.com/)
 
 ```sh
-❯ echo 'INSERT-TEST-COMMAND-HERE'
+❯ npm test
 ```
 
 
